@@ -18,7 +18,6 @@ module.exports =  function Language(payload){
 		message.embeds[0].title = "Languages added"
 		let fields = []
 		for (lang of payload.languages) {
-			console.log(lang)
 			fields.push({
 				"name" : lang.name,
 				"value" : "Language code `" + lang.iso + "`\nLanguage id `" + lang.id + "`",

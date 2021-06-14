@@ -4,6 +4,8 @@ const axios = require('axios')
 const dotenv = require('dotenv').config()
 const data = require("./variables.json")
 const Language = require("./handlers/language")
+const Key = require("./handlers/key")
+const Translation = require("./handlers/translation")
 
 const app = express()
 const PORT = process.env.PORT ?? 3000
@@ -19,15 +21,18 @@ app.post("/", (req,res) => {
 	if(event.includes("language")){
 		message = Language(req.body)
 	}else if(event.includes("key")){
-
+		message = Key(req.body)
 	}else if(event.includes("translation")){
-
+		message = Translation(req.body)
 	}else if(event.includes("contributor")){
 
 	}else if(event.includes("task")){
 
 	}
-	//TODO: error handling if msg == undefined
+	if(message === undefined){
+		res.status(500).end()
+		return
+	}
 	axios.post(process.env.OUTPUT_WEBHOOK,  message).catch(error => console.error(error))
 	res.status(200).end()
 })
