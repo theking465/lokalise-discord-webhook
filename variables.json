@@ -1,0 +1,32 @@
+{
+	"raw_message": {
+		"content": " ",
+		"embeds": [
+		  {
+			"title": "",
+			"description": "",
+			"color": 15769856,
+			"fields": [
+			  {
+				"name": " ",
+				"value": " ",
+				"inline": true
+			  }
+			],
+			"author": {
+			  "name": ""
+			},
+			"footer": {
+			  "text": "Lokalise - Discord",
+			  "icon_url": "https://pbs.twimg.com/profile_images/1233299193176952832/pWpItE68_400x400.jpg"
+			},
+			"timestamp": ""
+		  }
+		]
+	},
+	"colors":{
+		"added" :5808476,
+		"removed" : 11802905,
+		"modified" : 14851338
+	}
+}
