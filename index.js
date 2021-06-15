@@ -1,7 +1,7 @@
 const express = require("express")
 const bodyParser = require("body-parser")
-const axios = require('axios')
-const dotenv = require('dotenv').config()
+const axios = require("axios")
+const dotenv = require("dotenv").config()
 const data = require("./variables.json")
 const Language = require("./handlers/language")
 const Key = require("./handlers/key")
@@ -18,8 +18,11 @@ const PORT = process.env.PORT ?? 3000
 
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
-app.listen(PORT, () => console.log("Webhook listening at Port: " + PORT))
-
+app.listen(PORT, () => {
+	if(dotenv.error) console.error(dotenv.error)
+	// eslint-disable-next-line no-console
+	console.log("Webhook listening at Port: " + PORT)
+})
 app.post("/", (req,res) => {
 	const payload = req.body
 	const event = payload.event
