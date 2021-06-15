@@ -8,10 +8,6 @@ const data = require("../variables.json")
  */
 module.exports =  function Language(payload){
 	let message = data.raw_message
-	
-	message.embeds[0].description = "Project: `" + payload.project.name + "`"
-	message.embeds[0].author.name = payload.user.full_name
-	message.embeds[0].timestamp = payload.created_at
 
 	if(payload.event.includes("added")){
 		message.embeds[0].color = data.colors.added

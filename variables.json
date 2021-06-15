@@ -28,5 +28,9 @@
 		"added" :5808476,
 		"removed" : 11802905,
 		"modified" : 14851338
+	},
+	"privacy":{
+		"show_contributor_email" : true,
+		"show_user_email" : true
 	}
 }

@@ -9,10 +9,6 @@ const data = require("../variables.json")
 module.exports =  function Key(payload){
 	let message = data.raw_message
 	
-	message.embeds[0].description = "Project: `" + payload.project.name + "`"
-	message.embeds[0].author.name = payload.user.full_name
-	message.embeds[0].timestamp = payload.created_at
-
 	if(payload.event.includes("deleted")){
 		message.embeds[0].color = data.colors.removed
 		message.embeds[0].title = "Keys deleted"

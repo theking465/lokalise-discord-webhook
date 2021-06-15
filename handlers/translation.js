@@ -8,10 +8,6 @@ const data = require("../variables.json")
  */
 module.exports =  function Translation(payload){
 	let message = data.raw_message
-	
-	message.embeds[0].description = "Project: `" + payload.project.name + "`"
-	message.embeds[0].author.name = payload.user.full_name
-	message.embeds[0].timestamp = payload.created_at
 
 	if(payload.event.includes("updated")){
 		message.embeds[0].color = data.colors.modified
@@ -20,12 +16,12 @@ module.exports =  function Translation(payload){
 		message.embeds[0].fields = [
 			{
 				"name" : "New value",
-				"value" : payload.translation.value,
+				"value" : "`" + payload.translation.value + "`",
 				"inline" : true
 			},
 			{
 				"name" : "Old value",
-				"value" : payload.translation.previous_value,
+				"value" : "`" + payload.translation.previous_value + "`",
 				"inline" : true
 			}
 		]
