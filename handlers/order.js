@@ -31,8 +31,8 @@ module.exports =  function Order(payload){
 		message.embeds[0].color = data.colors.removed
 		message.embeds[0].title = "Order deleted"
 		message.embeds[0].fields = [{
-			"name" : payload.order.id,
-			"value" : payload.order.provider,
+			"name" : payload.project.name,
+			"value" : payload.project.id,
 			"inline" : false
 		}]
 	}else{

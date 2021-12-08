@@ -11,7 +11,7 @@ const Task = require("./handlers/task")
 const Order = require("./handlers/order")
 const Export = require("./handlers/export")
 const Import = require("./handlers/import")
-
+const Deleted = require("./handlers/deleted")
 
 const app = express()
 const PORT = process.env.PORT ?? 3000
@@ -43,6 +43,8 @@ app.post("/", (req,res) => {
 		message = Import(payload)
 	}else if(event === "project.exported"){
 		message = Export(payload)
+	}else if(event === "project.deleted"){
+		message = Deleted(payload)
 	}else if(event === "project.snapshot"){
 		delete message.embeds[0].fields
 		message.embeds[0].title = "Snapshot"
