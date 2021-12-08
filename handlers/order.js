@@ -26,6 +26,15 @@ module.exports =  function Order(payload){
 			"value" : payload.order.provider,
 			"inline" : false
 		}]
+	}
+	else if(payload.event.includes("deleted")){
+		message.embeds[0].color = data.colors.removed
+		message.embeds[0].title = "Order deleted"
+		message.embeds[0].fields = [{
+			"name" : payload.order.id,
+			"value" : payload.order.provider,
+			"inline" : false
+		}]
 	}else{
 		return undefined
 	}
