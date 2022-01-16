@@ -25,6 +25,16 @@ app.listen(PORT, () => {
 })
 app.post("/", (req,res) => {
 	const payload = req.body
+        if (Array.isArray(payload)) {
+          if (payload[0] === 'ping') {
+            res.status(200).end();
+            return;
+          } else {
+            res.status(400).end();
+            return;
+          }
+        }
+
 	const event = payload.event
 	let message =  data.raw_message
 	if(event.startsWith("project.language")){
