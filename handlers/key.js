@@ -8,6 +8,8 @@ const data = require("../variables.json")
  */
 module.exports =  function Key(payload){
 	let message = data.raw_message
+	let urlToKey = "https://app.lokalise.com/project/" + payload.project.id + "/?k=" + payload.key.id
+	message.embeds[0].url = urlToKey
 	
 	if(payload.event.includes("deleted")){
 		message.embeds[0].color = data.colors.removed

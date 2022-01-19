@@ -8,6 +8,8 @@ const data = require("../variables.json")
  */
 module.exports =  function Translation(payload){
 	let message = data.raw_message
+	let urlToKey = "https://app.lokalise.com/project/" + payload.project.id + "/?k=" + payload.key.id
+	message.embeds[0].url = urlToKey
 
 	if(payload.event.includes("updated")){
 		message.embeds[0].color = data.colors.modified
@@ -18,7 +20,7 @@ module.exports =  function Translation(payload){
 				"name" : "New value",
 				"value" : "`" + payload.translation.value + "`",
 				"inline" : true
-			},
+			},	
 			{
 				"name" : "Old value",
 				"value" : "`" + payload.translation.previous_value + "`",
